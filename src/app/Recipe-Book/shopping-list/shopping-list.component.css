@@ -1,0 +1,16 @@
+/* Add this CSS to your stylesheet */
+
+.error-message {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* Optional: Add styles for form fields if needed */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}

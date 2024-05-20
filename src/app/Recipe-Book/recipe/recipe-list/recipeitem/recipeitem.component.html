@@ -1,0 +1,9 @@
+<a [routerLink]="[index]" routerLinkActive="active" class="list-group-item clearfix" (click)="onSelected()">
+    <div class="pull-left" style="width: 70%;">
+        <h4 class="list-group-item-heading">{{recipe.name}}</h4>
+        <p class="list-group-item-text">{{recipe.description}}</p>
+    </div>
+    <span class="pull-right" style="width: 30%;">
+        <img src="{{recipe.imagepath}}" alt="" class="img-responsive" style="max-height: 50px;">
+    </span>
+</a>

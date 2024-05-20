@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="onNewRecipe()">New Recipe</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-recipeitem *ngFor="let recipeEl of recipes; let i = index" [recipe]="recipeEl" [index]="i"
+            (recipeSelected)="onRecipeSelected(recipeEl)" class="mb-3"></app-recipeitem>
+    </div>
+</div>
+
+<div *ngIf="isLoading" class="loading-container">
+    <div class="loading-spinner"></div>
+    <div class="loading-message">Recipes loading...</div>
+</div>
+

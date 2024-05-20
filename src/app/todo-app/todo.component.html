@@ -1,0 +1,37 @@
+<div class="container" style="display: flex;flex-direction: column;align-items: center;gap: 10px;">
+    <label for="input">Create Task</label>
+    <input class="form-control" style="width: max-content;" id="input" type="text" value="{{taskData}}" (input)="getTaskData($event)">
+    @if (editStatus) {
+    <button class="btn btn-warning" (click)="updateTask(currentIndex)">Update Task</button>
+    }
+    @else{
+    <button class="btn btn-success" (click)="addTask()">Add Task</button>
+    }
+    @if (validateStatus) {
+    <p style="color: red;">Task should not be empty</p>
+    }
+</div>
+<hr>
+<div class="container">
+    <p class="px-4" style="color: yellow;background-color: grey;max-width: fit-content;">OnGoing Tasks</p>
+    <div *ngFor="let task of taskList;let index1=index" class="row bg-info"
+        style="width: 100%;padding: 10px;margin: 10px 0; display: flex;flex-direction: row;justify-content: center;align-items: center;column-gap: 10px;flex-wrap: wrap;">
+        <p class="col-sm-9">{{task}}</p>
+        <div style="display: flex;align-items: center;justify-content: center;gap: 5px;flex-wrap: wrap;">
+            <button class="btn btn-danger" style="margin: 0 5px;" (click)="deleteTask(index1)">Delete</button>
+            <button class="btn btn-primary" style="margin: 0 5px;" (click)="editTask(index1)">Edit</button>
+            <button class="btn btn-success" style="margin: 0 5px;" (click)="completeTask(index1)">Completed</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <p style="color:green;background-color: rgba(0, 0, 0, 0.199);max-width: max-content;">Completed Tasks</p>
+    <div *ngFor="let comTask of completedList;let index2=index" class="row bg-info"
+        style="width: 100%;padding: 10px;margin: 10px 0; display: flex;flex-direction: row;align-items: center;column-gap: 10px;flex-wrap: wrap;">
+        <p class="col-sm-9"> <i class="bi bi-check-circle-fill" style="color: green;"></i> {{comTask}}</p>
+        <div class="">
+            <button class="btn btn-danger " style="margin: 0 5px;" (click)="deleteTaskPerminently(index2)">Delete</button>
+            <button class="btn btn-primary " style="margin: 0 5px;" (click)="moveTask(index2)">Move</button>
+        </div>
+    </div>
+</div>
